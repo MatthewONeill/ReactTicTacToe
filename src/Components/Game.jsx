@@ -48,7 +48,7 @@ class Game extends React.Component{
             const desc = move ? 'Go to move #' + move : 'Go to game start';
             return(
                 <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button onClick={() => this.jumpTo(move)} style={{width: "137px", marginBottom: "5px", color: "#d8dee9"}}><p style={{color: "#5e81ac", height: "5px"}}>{desc}</p></button>
                 </li>
             );
         });
@@ -62,16 +62,18 @@ class Game extends React.Component{
         }
 
         return (
-            <div className="game">
+            <div className="container-fluid">
+                <div row className="row d-flex justify-content-center" style={{paddingBottom: "20px"}}>
+                    <p style={{color: "#8FBCBB", fontSize: "36px"}}>{status}</p>
+                </div>
                 <div className="game-board">
                     <Board 
                         squares={current.squares}
                         onClick={(i) => this.handleClick(i)}
                     />
                 </div>
-                <div className="game-info">
-                    <div>{status}</div>
-                    <ol>{moves}</ol>
+                <div className="row d-flex justify-content-center" style={{paddingTop: "20px", marginRight: "20px"}}>
+                    <ol style={{color: "#8FBCBB"}}>{moves}</ol>
                 </div>
             </div>
         );
